@@ -32,27 +32,21 @@ ENV TZ="America/Salt Lake City"
 RUN apt-get -y update && apt-get -y install \
    apt-utils \
    emacs-nox \
-   g++
-   autoconf \
-   automake \
-   build-essential \
-   cmake \
-   git-core \
-   libass-dev \
-   libfreetype6-dev \
-   libgnutls28-dev \
-   libsdl2-dev \
-   libtool \
-   libva-dev \
-   libvdpau-dev \
-   libvorbis-dev \
-   libxcb1-dev \
-   libxcb-shm0-dev \
-   libxcb-xfixes0-dev \
-   pkg-config \
-   texinfo \
-   wget \
-   yasm \
-   zlib1g-dev
+   g++ \
+  autoconf \
+  automake \
+  build-essential \
+  cmake \
+  git-core \
+  libass-dev \
+  libfreetype6-dev \
+  libgnutls28-dev \
+  libtool \
+  libvorbis-dev \
+  pkg-config \
+  texinfo \
+  wget \
+  yasm \
+  zlib1g-dev
    
-RUN git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg && ./ffmpeg && git reset --hard f7fd205f11d5299d6a16b0ff0ae85fddb32772f2 && ./configure --prefix=/ && make && make install
+RUN git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg ; cd ./ffmpeg ; git reset --hard f7fd205f11d5299d6a16b0ff0ae85fddb32772f2 ; ./configure --prefix=/ ; make ; make install
